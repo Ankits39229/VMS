@@ -1,0 +1,38 @@
+[
+    {
+      "name": "Interactive Touch Display",
+      "description": "A 4K ultra-responsive touch display for engaging product demonstrations.",
+      "category": "Exhibition Tech",
+      "price": 1599.99,
+      "stock": 15,
+      "imageUrl": "/placeholder-images/product-display.jpg",
+      "features": ["Multi-touch", "4K Resolution", "Built-in Analytics"]
+    },
+    {
+      "name": "Lead Capture App License",
+      "description": "Annual license for our premium lead capture mobile application.",
+      "category": "Software",
+      "price": 299.00,
+      "stock": 100,
+      "imageUrl": "/placeholder-images/lead-app.jpg",
+      "features": ["Offline Mode", "Business Card Scanner", "CRM Integration"]
+    },
+    {
+      "name": "Portable Projector Pro",
+      "description": "Compact and powerful projector for dynamic presentations on the go.",
+      "category": "AV Equipment",
+      "price": 450.00,
+      "stock": 30,
+      "imageUrl": "/placeholder-images/projector.jpg",
+      "features": ["1080p Full HD", "5-hour Battery", "Wireless Connectivity"]
+    },
+    {
+      "name": "Custom Branded Booth Setup",
+      "description": "Complete booth design and setup service, tailored to your brand.",
+      "category": "Services",
+      "price": 2500.00,
+      "stock": 5,
+      "imageUrl": "/placeholder-images/booth-setup.jpg",
+      "features": ["Modular Design", "LED Lighting", "Installation Included"]
+    }
+  ]
