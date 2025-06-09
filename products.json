@@ -5,7 +5,7 @@
       "category": "Exhibition Tech",
       "price": 1599.99,
       "stock": 15,
-      "imageUrl": "/placeholder-images/product-display.jpg",
+      "imageUrl": "/images/products/interactive-touch-display.jpeg",
       "features": ["Multi-touch", "4K Resolution", "Built-in Analytics"]
     },
     {
@@ -14,7 +14,7 @@
       "category": "Software",
       "price": 299.00,
       "stock": 100,
-      "imageUrl": "/placeholder-images/lead-app.jpg",
+      "imageUrl": "/images/products/CustomBrandedBoothSetup.jpeg",
       "features": ["Offline Mode", "Business Card Scanner", "CRM Integration"]
     },
     {
@@ -23,7 +23,7 @@
       "category": "AV Equipment",
       "price": 450.00,
       "stock": 30,
-      "imageUrl": "/placeholder-images/projector.jpg",
+      "imageUrl": "/images/products/PortableProjectorPro.webp",
       "features": ["1080p Full HD", "5-hour Battery", "Wireless Connectivity"]
     },
     {
@@ -32,7 +32,7 @@
       "category": "Services",
       "price": 2500.00,
       "stock": 5,
-      "imageUrl": "/placeholder-images/booth-setup.jpg",
+      "imageUrl": "/images/products/CustomBrandedBoothSetup.jpeg",
       "features": ["Modular Design", "LED Lighting", "Installation Included"]
     }
   ]
