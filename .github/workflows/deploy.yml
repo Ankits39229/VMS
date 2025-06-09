@@ -1,0 +1,73 @@
+# GitHub Actions workflow for deploying a Next.js static export to GitHub Pages
+
+name: Deploy Next.js to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main # Or your default branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18" # Or your preferred Node.js version
+          cache: 'npm' # Or 'yarn' or 'pnpm'
+
+      - name: Install dependencies
+        run: npm ci # Or yarn install --frozen-lockfile or pnpm install --frozen-lockfile
+
+      # If your Next.js app needs a base path for GitHub Pages (e.g., https://username.github.io/repository-name/)
+      # You might need to configure `basePath` in next.config.js and `assetPrefix`.
+      # For simplicity, this example assumes deployment to a root or custom domain.
+      # If deploying to a subpath (like /repository-name/), you'll need to set basePath in next.config.js
+      # and potentially adjust assetPrefix.
+      # Example: basePath: '/your-repo-name'
+
+      - name: Build Next.js app
+        run: npm run build # This usually runs `next build`
+        env:
+          # If your build process requires environment variables, set them here
+          # For a static export, MONGODB_URI might not be strictly needed at build time
+          # unless you use it for getStaticProps/getStaticPaths data fetching.
+          # However, API routes won't be part of the export.
+          NEXT_PUBLIC_SOME_VAR: "some_value"
+
+      # Before exporting, you might need to adjust next.config.js for static export:
+      # module.exports = {
+      #   output: 'export',
+      #   images: {
+      #     unoptimized: true, // If using next/image and not configuring a custom loader for static export
+      #   },
+      #   // If deploying to a subpath like /your-repo-name, uncomment and set basePath:
+      #   // basePath: '/your-repo-name',
+      #   // assetPrefix: '/your-repo-name/',
+      # };
+
+      - name: Export Next.js app
+        run: npm run export # This command should be in your package.json scripts, e.g., "export": "next export"
+                         # If not, use `npx next export` directly.
+                         # The output directory is typically 'out'.
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './out' # Default output directory for `next export`
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
